@@ -10,13 +10,11 @@
     }
 
     $app = new Silex\Application();
-
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' =>__DIR__.'/../views'
     ));
 
     $app->get("/", function() use ($app) {
-
         return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
     });
 
@@ -26,14 +24,9 @@
         return $app['twig']->render('create_task.html.twig', array('newtask' => $task));
     });
 
-    $app->post("/delete_tasks", function() {
-
+    $app->post("/delete_tasks", function() use ($app) {
         Task::deleteAll();
-
-        return "
-            <h1>List Cleared!</h1>
-            <p><a href='/'>Home</a></p>
-        ";
+        return $app['twig']->render('delete_tasks.html.twig');
     });
 
     return $app;
