@@ -61,7 +61,7 @@
             $returned_categories = $GLOBALS['DB']->prepare("SELECT * FROM categories WHERE id = :id");
             $returned_categories->bindParam(':id', $search_id, PDO::PARAM_STR);
             $returned_categories->execute();
-            foreach($categories as $category) {
+            foreach($returned_categories as $category) {
                 $category_name = $category['name'];
                 $category_id = $category['id'];
                 if ($category_id == $search_id) {
