@@ -137,6 +137,19 @@
             //Assert
             $this->assertEquals([$test_task, $test_task_2], $result);
         }
+
+        function testUpdate()
+        {
+            $name = "Work stuff";
+            $test_category = new Category($name);
+            $test_category->save();
+
+            $new_name = "Home stuff";
+
+            $test_category->update($new_name);
+
+            $this->assertEquals("Home stuff", $test_category->getName());
+        }
     }
 
 ?>
