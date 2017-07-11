@@ -29,11 +29,12 @@
             $test_category->save();
 
             $description = "Wash the dog";
+            $date = "July 4";
             $category_id = $test_category->getId();
-            $test_task = new Task($description, $category_id);
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
-            //Act
+            //Acts
             $result = $test_task->getId();
 
             //Assert
@@ -49,7 +50,8 @@
 
             $category_id = $test_category->getId();
             $description = "Wash the dog";
-            $test_task = new Task($description, $category_id);
+            $date = "July 5";
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
             //Act
@@ -67,8 +69,9 @@
             $test_category->save();
 
             $description = "Wash the dog";
+            $date = "July 4";
             $category_id = $test_category->getId();
-            $test_task = new Task($description, $category_id);
+            $test_task = new Task($description, $date, $category_id);
 
             //Act
             $executed = $test_task->save();
@@ -86,11 +89,13 @@
             $category_id = $test_category->getId();
 
             $description = "Wash the dog";
-            $test_task = new Task($description, $category_id);
+            $date = "July 5";
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
             $description_2 = "Water the lawn";
-            $test_task_2 = new Task($description_2, $category_id);
+            $date_2 = "Christmas";
+            $test_task_2 = new Task($description_2, $date_2, $category_id);
             $test_task_2->save();
 
             //Act
@@ -109,11 +114,13 @@
             $category_id = $test_category->getId();
 
             $description = "Wash the dog";
-            $test_task = new Task($description, $category_id);
+            $date = "July 5";
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
             $description_2 = "Water the lawn";
-            $test_task_2 = new Task($description_2, $category_id);
+            $date_2 = "Christmas";
+            $test_task_2 = new Task($description_2, $date_2, $category_id);
             $test_task_2->save();
 
             //Act
@@ -133,11 +140,13 @@
             $category_id = $test_category->getId();
 
             $description = "Wash the dog";
-            $test_task = new Task($description, $category_id);
+            $date = "July 4";
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
             $description_2 = "Water the lawn";
-            $test_task_2 = new Task($description_2, $category_id);
+            $date_2 = "Christmas";
+            $test_task_2 = new Task($description_2, $date_2, $category_id);
             $test_task_2->save();
 
             //Act

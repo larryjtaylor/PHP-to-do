@@ -124,11 +124,13 @@
             $test_category_id = $test_category->getId();
 
             $description = "Email client";
-            $test_task = new Task($description, $test_category_id);
+            $date = "July 4";
+            $test_task = new Task($description, $date, $test_category_id);
             $test_task->save();
 
             $description_2 = "Meet with boss";
-            $test_task_2 = new Task($description_2, $test_category_id);
+            $date_2 = "July 5";
+            $test_task_2 = new Task($description_2, $date_2, $test_category_id);
             $test_task_2->save();
 
             //Act
@@ -178,8 +180,9 @@
             $test_category->save();
 
             $description = "Build website";
+            $date = "Christmas";
             $category_id = $test_category->getId();
-            $test_task = new Task($description, $category_id);
+            $test_task = new Task($description, $date, $category_id);
             $test_task->save();
 
 
