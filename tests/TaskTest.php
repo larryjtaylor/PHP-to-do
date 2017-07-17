@@ -189,6 +189,23 @@
             //Assert
             $this->assertEquals([$test_task2], Task::getAll());
         }
+        function testUpdateFinished()
+        {
+            //Arrange
+            $description = "Wash the dog";
+            $date = "Oct 1";
+            $finished = false;
+            $test_task = new Task($description, $date, $finished);
+            $test_task->save();
 
+            $new_finished = true;
+
+            //Act
+            $test_task->updateFinished($new_finished);
+
+            //Assert
+            $this->assertEquals(true, $test_task->getFinished());
+
+        }
     }
 ?>

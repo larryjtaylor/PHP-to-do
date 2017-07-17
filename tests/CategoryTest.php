@@ -196,6 +196,8 @@
             //Assert
             $this->assertEquals([$test_category_2], Category::getAll());
         }
+
+      
     }
 
 ?>

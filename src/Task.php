@@ -44,6 +44,11 @@
             return $this->finished;
         }
 
+        function setFinished($new_finished)
+        {
+           $this->finished = (bool) $new_finished;
+        }
+
         function save()
         {
             $executed = $GLOBALS['DB']->exec("INSERT INTO tasks (description, date, finished) VALUES ('{$this->getDescription()}', '{$this->getDate()}', '{$this->getFinished()}')");
@@ -118,5 +123,18 @@
                 return false;
             }
         }
+
+        function updateFinished($new_finished)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE tasks SET finished = '{$new_finished}' WHERE id = {$this->getId()};");
+            if ($executed) {
+               $this->setFinished($new_finished);
+               return true;
+            } else {
+               return false;
+            }
+        }
+
+
     }
  ?>

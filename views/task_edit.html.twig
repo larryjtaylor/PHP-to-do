@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Edit Task</title>
+  </head>
+  <body>
+    <h1>Update the {{ task.getDescription }} task </h1>
+
+    <form action="/tasks/{{ task.getId }}" method="post">
+      <input name="_method" type="hidden" value="patch">
+
+      <input type="checkbox" name="checked" value="0"> Completed</input>
+
+      <button type="submit">Update</button>
+    </form>
+    <form action="/tasks/{{ task.getId }}" method="post">
+      <input name="_method" type="hidden" value="delete">
+
+      <button type="submit">Delete this task</button>
+    </form>
+  </body>
+</html>

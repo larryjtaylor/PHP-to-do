@@ -37,11 +37,26 @@
         $task->save();
         return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
     });
+    // $app->patch("/tasks", function() use ($app){
+    //     $finished = $_POST['checked'];
+    //     $tasks = Task::getAll();
+    //     $result = array();
+    //     foreach($tasks as $task) {
+    //         if ($finished == true) {
+    //
+    //         }
+    //     }
+    // })
 
     $app->get("/tasks/{id}", function ($id) use ($app) {
         $task = Task::find($id);
         return $app['twig']->render('task.html.twig', array('task' => $task, 'categories' => $task->getCategories(), 'all_categories' => Category::getAll()));
     });
+
+    $app->get("/tasks/{id}/edit", function($id) use ($app) {
+       $task = Task::find($id);
+       return $app['twig']->render('task_edit.html.twig', array('task' => $task));
+   });
 
     $app->post("/categories", function() use ($app) {
       $category = new Category($_POST['name']);
@@ -78,6 +93,13 @@
         $category = Category::find($id);
         $category->update($name);
         return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks(), 'all_tasks' => Task::getAll()));
+    });
+
+    $app->patch("/tasks/{id}", function($id) use ($app) {
+        $finished = $_POST['finished'];
+        $task =Task::find($id);
+        $task->updateFinished($finished);
+        return $app['twig']->render('task.html.twig', array('task' => $task, 'tasks' => $task->getTasks(), 'all_tasks' => Task::getAll()));
     });
 
     $app->post("/delete_categories", function() use ($app) {
