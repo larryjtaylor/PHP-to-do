@@ -15,6 +15,7 @@
             <ul>
                 {% for task in tasks %}
                     <li><a href="/tasks/{{ task.getId }}">{{ task.getDescription }}</a></li>
+                    <p>Due date: {{ task.getDate }}</p>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -22,11 +23,14 @@
         <form action='/tasks' method='post'>
             <label for='description'>Task Description</label>
             <input id='description' name='description' type='text'>
+            <label for='date'>Task Due Date</label>
+            <input id='date' name='date' type='text'>
             <button type='submit' class='btn-success'>Add task</button>
         </form>
         <form action='/delete_tasks' method='post'>
             <button type='submit' class='btn-info'>Clear</button>
         </form>
+
         <p><a href='/'>Home</a></p>
     </div>
   </body>
