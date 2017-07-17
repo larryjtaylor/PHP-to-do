@@ -77,7 +77,7 @@
         $name = $_POST['name'];
         $category = Category::find($id);
         $category->update($name);
-        return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks()));
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks(), 'all_tasks' => Task::getAll()));
     });
 
     $app->post("/delete_categories", function() use ($app) {
