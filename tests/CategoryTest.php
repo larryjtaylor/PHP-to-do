@@ -89,7 +89,9 @@
 
             $description = "File reports";
             $date = "july 9";
-            $test_task = new Task($description, $date);
+            $finished = false;
+            // $id = getId();
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             //Act
@@ -108,12 +110,16 @@
 
             $description = "Wash the dog";
             $date = "July 22";
-            $test_task = new Task($description, $date);
+            $finished = false;
+            // $id = getId();
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $description2 = "Take out the trash";
             $date2 = "June 23";
-            $test_task2 = new Task($description2, $date2);
+            $finished_2 = false;
+            // $id = getId();
+            $test_task2 = new Task($description2, $date2, $finished_2);
             $test_task2->save();
 
             //Act

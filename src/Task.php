@@ -4,12 +4,14 @@
         private $description;
         private $date;
         private $id;
+        private $finished;
 
-        function __construct($description, $date, $id = null)
+        function __construct($description, $date, $id = null, $finished = 0)
         {
             $this->description = $description;
             $this->date = $date;
             $this->id = $id;
+            $this->finished = $finished;
         }
 
         function setDescription($new_description)
@@ -37,9 +39,14 @@
             return $this->id;
         }
 
+        function getFinished()
+        {
+            return $this->finished;
+        }
+
         function save()
         {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO tasks (description, date) VALUES ('{$this->getDescription()}', '{$this->getDate()}')");
+            $executed = $GLOBALS['DB']->exec("INSERT INTO tasks (description, date, finished) VALUES ('{$this->getDescription()}', '{$this->getDate()}', '{$this->getFinished()}')");
             if ($executed) {
                 $this->id = $GLOBALS['DB']->lastInsertID();
                 return true;
@@ -50,13 +57,14 @@
 
         static function getAll()
         {
-            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY date ASC;");
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks;");
             $tasks = array();
             foreach($returned_tasks as $task) {
                 $task_description = $task['description'];
                 $task_date = $task['date'];
                 $task_id = $task['id'];
-                $new_task = new Task($task_description, $task_date, $task_id);
+                $task_finished = $task['finished'];
+                $new_task = new Task($task_description, $task_date, $task_id, $task_finished);
                 array_push($tasks, $new_task);
             }
             return $tasks;
@@ -82,8 +90,9 @@
                 $task_description = $task['description'];
                 $task_date = $task['date'];
                 $task_id = $task['id'];
+                $task_finished = $task['finished'];
                 if ($task_id == $search_id) {
-                    $found_task = new Task($task_description, $task_date, $task_id);
+                    $found_task = new Task($task_description, $task_date, $task_id, $task_finished);
                 }
             }
             return $found_task;

@@ -26,7 +26,8 @@
             //Arrange
             $description = "Do dishes.";
             $date = "Easter";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
 
             //Act
             $result = $test_task->getDescription();
@@ -40,7 +41,8 @@
             //Arrange
             $description = "Do dishes.";
             $date = "April 25";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
 
             //Act
             $test_task->setDescription("Drink coffee.");
@@ -54,7 +56,8 @@
             // Arrange
             $description = "Wash the dog";
             $date = "July 4";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             //Acts
@@ -69,7 +72,8 @@
             //Arrange
             $description = "Wash the dog";
             $date = "July 4";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
 
             //Act
             $executed = $test_task->save();
@@ -83,12 +87,14 @@
             //Arrange
             $description = "Wash the dog";
             $date = "July 5";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $description_2 = "Water the lawn";
             $date_2 = "Christmas";
-            $test_task_2 = new Task($description_2, $date_2);
+            $finished_2 = true;
+            $test_task_2 = new Task($description_2, $date_2, $finished_2);
             $test_task_2->save();
 
             //Act
@@ -103,12 +109,14 @@
             //Arrange
             $description = "Wash the dog";
             $date = "July 5";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $description_2 = "Water the lawn";
             $date_2 = "Christmas";
-            $test_task_2 = new Task($description_2, $date_2);
+            $finished_2 = true;
+            $test_task_2 = new Task($description_2, $date_2, $finished_2);
             $test_task_2->save();
 
             //Act
@@ -124,12 +132,14 @@
             //Arrange
             $description = "Wash the dog";
             $date = "July 4";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $description_2 = "Water the lawn";
             $date_2 = "Christmas";
-            $test_task_2 = new Task($description_2, $date_2);
+            $finished_2 = true;
+            $test_task_2 = new Task($description_2, $date_2, $finished_2);
             $test_task_2->save();
 
             //Act
@@ -144,7 +154,8 @@
             //Arrange
             $description = "Wash the dog";
             $date = "Oct 1";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $new_description = "Clean the dog";
@@ -161,12 +172,14 @@
             //Arrange
             $description = "Wash the dog";
             $date = "Aug 2";
-            $test_task = new Task($description, $date);
+            $finished = true;
+            $test_task = new Task($description, $date, $finished);
             $test_task->save();
 
             $description2 = "Water the lawn";
             $date2 = "Aug 1";
-            $test_task2 = new Task($description2, $date2);
+            $finished_2 = true;
+            $test_task2 = new Task($description2, $date2, $finished_2);
             $test_task2->save();
 
 
