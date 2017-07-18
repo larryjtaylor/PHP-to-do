@@ -46,7 +46,7 @@
 
         function setFinished($new_finished)
         {
-           $this->finished = (bool) $new_finished;
+           $this->finished = boolval($new_finished);
         }
 
         function save()
