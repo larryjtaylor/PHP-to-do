@@ -88,14 +88,14 @@
             $test_category->save();
 
             $description = "File reports";
-            $date = "july 9";
-            $finished = false;
-            // $id = getId();
-            $test_task = new Task($description, $date, $finished);
+            $due_date = "july 9";
+            $test_task = new Task($description, $due_date);
             $test_task->save();
 
             //Act
             $test_category->addTask($test_task);
+
+            var_dump($test_task);
 
             //Assert
             $this->assertEquals($test_category->getTasks(), [$test_task]);
@@ -109,17 +109,15 @@
             $test_category->save();
 
             $description = "Wash the dog";
-            $date = "July 22";
-            $finished = false;
+            $due_date = "July 22";
             // $id = getId();
-            $test_task = new Task($description, $date, $finished);
+            $test_task = new Task($description, $due_date);
             $test_task->save();
 
             $description2 = "Take out the trash";
-            $date2 = "June 23";
-            $finished_2 = false;
+            $due_date2 = "June 23";
             // $id = getId();
-            $test_task2 = new Task($description2, $date2, $finished_2);
+            $test_task2 = new Task($description2, $due_date2);
             $test_task2->save();
 
             //Act
@@ -197,7 +195,7 @@
             $this->assertEquals([$test_category_2], Category::getAll());
         }
 
-      
+
     }
 
 ?>
